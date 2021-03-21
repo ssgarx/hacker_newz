@@ -1,0 +1,140 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #d3cce3; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #e9e4f0,
+    #d3cce3
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #e9e4f0,
+    #d3cce3
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+#groot {
+  max-width: 50rem;
+  margin: auto;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#storyCard {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  background-color: #603bbb;
+
+  -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+}
+#storyCard:hover {
+  background-color: #5637a5;
+  max-width: 51rem;
+}
+#storyCard_title {
+  font-size: 1.5rem;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+#storyCard_data {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* ***************NAVBAR******************** */
+nav {
+  height: 80px;
+  background-color: #5637a5;
+  height: 80px;
+  width: 100%;
+  top: 0;
+}
+.logox {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 80px;
+  margin: 0 20px;
+  color: white;
+}
+ul {
+  float: right;
+  margin: 0 3rem 0 0;
+  padding: 0;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 10px;
+}
+nav ul li label {
+  font-size: 1.2rem;
+  color: white;
+  margin-right: 10px;
+}
+
+/* ***************SELECT E******************** */
+/* class applies to select element itself, not a wrapper element */
+.select-css {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: black;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 7px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: white;
+  max-width: 8rem;
+}
+option {
+  text-align: center;
+}
+
+/* Focus style */
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+/* ***************SELECT E******************** */
+/* ***************SEARCH E******************** */
+/* #search_input {
+  width: 25rem;
+} */
+/* ***************SEARCH E******************** */
+/* ***************NAVBAR E******************** */
+@media (max-width: 600px) {
+  .logox {
+    font-size: 1.5rem;
+    line-height: 80px;
+  }
+  ul {
+    margin: 0 2rem 0 0;
+  }
+  nav ul li label {
+    font-size: 0.8rem;
+    margin-right: 5px;
+  }
+  .select-css {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    max-width: 8rem;
+  }
+}
