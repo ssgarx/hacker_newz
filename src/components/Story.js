@@ -1,31 +1,44 @@
 import React, { useEffect, useState, memo } from 'react'
 import { getStory } from '../services/hnApi';
-import { mapTime } from '../mappers/mapTime';
+import { mapTime } from '../timers/mapTime';
+import { connect } from "react-redux";
 
-//MEMO CHECKS IF COMPONENTS ARE ALREADY ON PAGE
-//IF PRESENT >> PREVENT RERENDER
-export const Story = memo(function Story({ storyId }) {
-    // console.log("storyId", storyId);
-    const [story, setStory] = useState({})
+//MAPPING STATE IN STORE TO PROPS
+const mapStateToProps = (state) => ({
+    sortType: state.changeSortType.data,
+});
+
+
+// MEMO CHECKS IF COMPONENTS ARE ALREADY ON PAGE
+// IF PRESENT >> PREVENT RERENDER
+export const Story = memo(function Story(props) {
+    const [story, setStory] = useState({});
+    const [filterType, setFilterType] = useState("story");
 
     useEffect(() => {
-        getStory(storyId).then(data => data && data.url && setStory(data));
+        setFilterType(props.sortType);
+    }, [props.sortType]);
+
+    useEffect(() => {
+        getStory(props.storyId).then(data => data && data.url && setStory(data));
         // console.log("story", JSON.stringify(story));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    return story && story.url ? (
+    return story && story.url && (story.type === filterType) ? (
         <div id="storyCard">
-            <span><a href={story.url}>
-                <p id="storyCard_title" >{story.title}</p>
+            <span><a href={story.url} target="_blank" rel="noreferrer">
+                <p id="storyCard_title" >{story.title} ... <span style={{ fontSize: "10px", fontStyle: "italic" }}>(click to read more)</span></p>
             </a></span>
-            <span>
-                <p id="storyCard_data"> posted by {story.by}, {mapTime(story.time)} ago</p>
+            <span style={{ textAlign: "right" }}>
+                <p id="storyCard_data">{story.type} posted by {story.by}, {mapTime(story.time)} ago.</p>
             </span>
         </div>
         // JSON.stringify(story)
     ) : null;
 });
+
+export const StoryX = connect(mapStateToProps)(Story);
 
 
 

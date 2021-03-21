@@ -1,29 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { connect } from "react-redux"
+import { changeSortType } from "../actions/index";
 
-function Navbar() {
-    const [sortType, setSortType] = useState("Top Story");
+function Navbar(props) {
+    const [sortType, setSortType] = useState("story");
+    const [searchText, setSearchText] = useState("");
 
-    function handleSortValueChange(e) {
-        setSortType(e.target.value);
+    useEffect(() => {
+        props.dispatch(changeSortType(sortType));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sortType]);
+
+    function handleSarchText(e) {
+        setSearchText(e.target.value)
     }
+
     return (
         <nav>
-            <label class="logox">HackerNewz</label>
-            {/* <input id="search_input" type="text" /> */}
+            <label className="logox">Hacker Newz</label>
+            <label className="logox1">HN</label>
+
             <ul>
                 <li>
-                    <label>Sort search by:</label>
-                    <select class="select-css" onChange={handleSortValueChange}>
-                        <option value="Story">Top Story</option>
-                        <option value="Job">Job</option>
-                        <option value="Comment">Comment</option>
-                        <option value="Poll">Poll</option>
-                        <option value="Pollopt">Pollopt</option>
+                    <label>Sort by</label>
+                    <select className="select-css" onChange={(e) => setSortType(e.target.value)}>
+                        <option value="story">Top Story</option>
+                        <option value="job">Find Jobs</option>
                     </select>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="text" onChange={handleSarchText} value={searchText} placeholder="Search" />
                 </li>
             </ul>
         </nav>
     )
 }
 
-export default Navbar
+export default connect()(Navbar);

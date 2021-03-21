@@ -2,70 +2,99 @@ body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background: #d3cce3; /* fallback for old browsers */
+
+  /* WEB PAGE BACKGROUND */
+  background: #ece9e6; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
-    #e9e4f0,
-    #d3cce3
+    #ffffff,
+    #ece9e6
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
-    #e9e4f0,
-    #d3cce3
+    #ffffff,
+    #ece9e6
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-#groot {
+#rootA {
   max-width: 50rem;
   margin: auto;
+  text-align: center;
 }
+#rootB {
+  margin-top: 90px;
+}
+/* DISABLED GLOBAL ANCHOR TAG DEFAULT DESIGN */
 a {
   text-decoration: none;
   color: black;
 }
-
+/* ******************** STORY CARD START ******************** */
 #storyCard {
   padding: 10px;
   margin: 10px;
   border-radius: 7px;
   background-color: #603bbb;
+  transition: 1s;
 
   -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
 }
 #storyCard:hover {
-  background-color: #5637a5;
-  max-width: 51rem;
+  background-color: #51349b;
 }
 #storyCard_title {
   font-size: 1.5rem;
-  color: white;
+  font-weight: 500;
+  color: black;
+  background-color: rgb(238, 238, 238);
+  border-radius: 5px;
   margin: 0;
-  padding: 0;
+  padding: 10px;
+  text-align: left;
+
+  -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  transition: 1s;
 }
 #storyCard_data {
   font-size: 0.9rem;
   font-style: italic;
   color: white;
-  margin: 0;
+  margin: 8px 0 0 0;
   padding: 0;
 }
+/* ******************** STORY CARD ENDS ******************** */
 
-/* ***************NAVBAR******************** */
+/* ******************** NAVBAR STARTS ******************** */
 nav {
   height: 80px;
   background-color: #5637a5;
-  height: 80px;
   width: 100%;
   top: 0;
+  position: fixed;
+
+  -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
 }
 .logox {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 80px;
+  margin: 0 20px;
+  color: white;
+}
+.logox1 {
   font-size: 2rem;
   font-weight: bold;
   line-height: 80px;
   margin: 0 20px;
   color: white;
 }
+
 ul {
   float: right;
   margin: 0 3rem 0 0;
@@ -98,6 +127,11 @@ nav ul li label {
   appearance: none;
   background-color: white;
   max-width: 8rem;
+  cursor: pointer;
+
+  -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
 }
 option {
   text-align: center;
@@ -112,20 +146,35 @@ option {
   outline: none;
 }
 
-/* ***************SELECT E******************** */
-/* ***************SEARCH E******************** */
-/* #search_input {
-  width: 25rem;
-} */
-/* ***************SEARCH E******************** */
-/* ***************NAVBAR E******************** */
-@media (max-width: 600px) {
-  .logox {
-    font-size: 1.5rem;
-    line-height: 80px;
-  }
+/* SEARCH BAR */
+.ip {
+  display: inline-block;
+}
+input {
+  margin-top: 18.5px;
+  line-height: 1.7rem;
+  width: 25vw;
+
+  color: black;
+  background-color: white;
+  border-color: transparent;
+  box-shadow: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+  border-radius: 5px;
+
+  -webkit-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 19px -6px rgba(0, 0, 0, 0.75);
+}
+
+/* ******************** NAVBAR ENDS ******************** */
+
+@media (max-width: 800px) {
   ul {
-    margin: 0 2rem 0 0;
+    margin: 0 1rem 0 0;
   }
   nav ul li label {
     font-size: 0.8rem;
@@ -136,5 +185,22 @@ option {
     padding: 0.5rem 1rem;
     margin: 0;
     max-width: 8rem;
+  }
+  input {
+    width: 25vw;
+    font-size: 1rem;
+  }
+  .logox {
+    display: none;
+  }
+  input {
+    margin-top: 18.5px;
+    line-height: 1.5rem;
+    width: 35vw;
+  }
+}
+@media (min-width: 800px) {
+  .logox1 {
+    display: none;
   }
 }

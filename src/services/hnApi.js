@@ -1,19 +1,31 @@
 import axios from "axios";
-import { selectFields } from '../selectors/selectFields';
+// import { selectFields } from '../selectors/selectFields';
 
-export const baseUrl = "https://hacker-news.firebaseio.com/v0/";
-export const newStoriesUrl = `${baseUrl}newstories.json`;
-export const storyUrl = `${baseUrl}item/`;
+// import store from "../store"
+// console.log(store.getState().changeSortType.data);
+
+var baseUrl = "https://hacker-news.firebaseio.com/v0/";
+var newStoriesUrl1 = `${baseUrl}newstories.json`;
+var newStoriesUrl2 = `${baseUrl}jobstories.json`;
+var storyUrl = `${baseUrl}item/`;
+
+
+export const getStoryIds = async (sortType) => {
+
+    if (sortType === "story") {
+        const result = await axios.get(newStoriesUrl1);
+        return result.data;
+    }
+    if (sortType === "job") {
+        const result = await axios.get(newStoriesUrl2);
+        return result.data;
+    }
+
+};
 
 export const getStory = async (storyId) => {
     const result = await axios.get(`${storyUrl + storyId}.json`);
-    // console.log("requested");
-    // console.log("API", result);
-    return selectFields(result.data);
+    return (result.data);
 };
 
-export const getStoryIds = async () => {
-    const result = await axios.get(newStoriesUrl);
 
-    return result.data;
-};

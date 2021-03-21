@@ -7,8 +7,6 @@ export const useInfiniteScroll = () => {
     const [count, setCount] = useState(STORY_INCREMENT);
 
     const handleScroll = debounce(() => {
-        // console.log("handleScrollx", window.innerHeight + document.documentElement.scrollTop);
-        // console.log("handleScrollx", document.documentElement.offsetHeight - 500);
         if (window.innerHeight + document.documentElement.scrollTop <
             (document.documentElement.offsetHeight - 500) || loading) {
             return false;
@@ -26,7 +24,6 @@ export const useInfiniteScroll = () => {
         } else {
             //IF WE ARE BELOW 500 STORIES
             setCount(count + STORY_INCREMENT);
-            // console.log("infinitescroill", count);
         }
         setLoading(false);
         // eslint-disable-next-line react-hooks/exhaustive-deps
