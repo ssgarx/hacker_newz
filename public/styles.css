@@ -199,6 +199,27 @@ input {
     width: 35vw;
   }
 }
+@media (max-width: 500px) {
+  .logox1 {
+    display: none;
+  }
+  input {
+    width: 35vw;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 350px) {
+  input {
+    width: 25vw;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 280px) {
+  input {
+    width: 21vw;
+    font-size: 1rem;
+  }
+}
 @media (min-width: 800px) {
   .logox1 {
     display: none;
