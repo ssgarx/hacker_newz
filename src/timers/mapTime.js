@@ -24,8 +24,8 @@ export const mapTime = timestamp => {
     interval = Math.floor(seconds / 60);
 
     if (interval > 1) {
-        return `${interval} minutes`;
+        return `${interval} mins.`;
     }
 
-    return `${Math.floor(seconds)} seconds`;
+    return `${Math.floor(seconds)} sec.`;
 };

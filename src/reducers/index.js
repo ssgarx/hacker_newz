@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import changeSortType from "./changeSortType";
+import { changeSortType } from "./changeSortType";
 
 const rootReducers = combineReducers({
-    changeSortType
+    changeSortType,
 });
 
 export default rootReducers;

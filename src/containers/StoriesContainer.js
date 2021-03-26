@@ -19,7 +19,7 @@ export const StoriesContainer = (props) => {
     }, [props.sortType]);
 
     useEffect(() => {
-        console.log('count', count);
+        // console.log('count', count);
         //UPON TRIGGER FETCHS 30 CODES AT A TIME
         getStoryIds(props.sortType).then(data => setstoryIds(data));
         // eslint-disable-next-line react-hooks/exhaustive-deps

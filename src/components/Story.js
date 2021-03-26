@@ -2,7 +2,6 @@ import React, { useEffect, useState, memo } from 'react'
 import { getStory } from '../services/hnApi';
 import { mapTime } from '../timers/mapTime';
 import { connect } from "react-redux";
-
 //MAPPING STATE IN STORE TO PROPS
 const mapStateToProps = (state) => ({
     sortType: state.changeSortType.data,
@@ -27,12 +26,16 @@ export const Story = memo(function Story(props) {
 
     return story && story.url && (story.type === filterType) ? (
         <div className="storyCard" id="storyCard">
-            <span className="story_title"><a href={story.url} target="_blank" rel="noreferrer">
-                <p className="storyCard_title" id="storyCard_title" >{story.title} ... <span style={{ fontSize: "10px", fontStyle: "italic" }}>(click to read more)</span></p>
-            </a></span>
-            <span style={{ textAlign: "right" }}>
-                <p className="storyCard_data" id="storyCard_data">{story.type} posted by {story.by}, {mapTime(story.time)} ago.</p>
-            </span>
+            <div className="storyCard-ip">
+                <div className="storyCard-c1">
+                    <span><p className="storyCard_title" id="storyCard_title" >{story.title} </p></span>
+                    <span style={{ textAlign: "right" }}><p className="storyCard_data" id="storyCard_data">- {story.by}</p></span>
+                </div>
+                <div className="storyCard-c2">
+                    <a href={story.url} target="blank"><button>Read More</button></a>
+                    <span style={{ textAlign: "right", color: "#cac9c9" }}><p className="time" id="time"> {mapTime(story.time)} ago</p></span>
+                </div>
+            </div>
         </div>
         // JSON.stringify(story)
     ) : null;

@@ -3,3 +3,4 @@ export const changeSortType = (sortName) => ({
     type: CHANGE_SORT_TYPE,
     sortName
 });
+

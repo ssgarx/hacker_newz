@@ -1,8 +1,9 @@
 const initialState = {
-    data: "story"
+    data: "story",
+    data1: false
 };
 
-const changeSortType = (state = initialState, action) => {
+export const changeSortType = (state = initialState, action) => {
     switch (action.type) {
         case "CHANGE_SORT_TYPE":
             return {
@@ -12,5 +13,3 @@ const changeSortType = (state = initialState, action) => {
             return state
     }
 }
-
-export default changeSortType;
